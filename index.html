@@ -235,6 +235,26 @@
   .reviews__meta b { color: var(--v-ink); font-weight: 600; }
   @media (max-width: 860px) { .reviews { margin-top: var(--v-9); } .reviews__list { grid-template-columns: 1fr; } .reviews__head { grid-template-columns: 1fr; align-items: start; margin-bottom: var(--v-6); } }
 
+  /* ---- 6а · кто ведёт заказ: портрет вымышленного представителя + часы, выезд ---- */
+  .lico__grid { display: grid; grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); gap: var(--v-8) var(--v-9); align-items: center; }
+  .lico__fig { border-radius: var(--v-radius); overflow: hidden; box-shadow: var(--v-e1); background: var(--v-surface); }
+  .lico__fig img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+  .lico__fig figcaption { padding: var(--v-3) var(--v-4) var(--v-4); font-size: var(--v-t-sm); color: var(--v-ink-soft); text-wrap: pretty; }
+  .lico__role { margin-top: var(--v-3); font-weight: 500; color: var(--v-accent-deep); }
+  .lico__copy .v-body { margin-top: var(--v-4); color: var(--v-ink-soft); max-width: 52ch; }
+  .lico__copy .facts { margin-top: var(--v-6); }
+  @media (max-width: 860px) { .lico__grid { grid-template-columns: 1fr; gap: var(--v-6); } .lico__fig { max-width: 20rem; } }
+
+  /* ---- 6б · отзывы (вымышленные, для учебного макета) ---------------------- */
+  .otz__head { display: flex; flex-direction: column; gap: var(--v-3); max-width: 44rem; margin-bottom: var(--v-7); }
+  .otz__head .v-body { color: var(--v-ink-soft); }
+  .reviews__item, .reviews__text { margin: 0; }
+  .reviews__item--big .reviews__text { font-family: var(--v-font-display); font-weight: 500; }
+
+  /* ---- 5а · дополнительные работы в блоке цен ------------------------------- */
+  .extra li { display: flex; justify-content: space-between; align-items: baseline; gap: var(--v-4); padding: var(--v-2) 0; border-top: 1px solid var(--v-hair); font-size: var(--v-t-sm); }
+  .extra b { font-family: var(--v-font-display); font-weight: 600; white-space: nowrap; }
+
   /* ---- 7 · финал: акт принят, расчёт --------------------------------------- */
   .fin__inner { height: 100%; width: min(100% - 2 * var(--v-gutter), 76rem); margin-inline: auto; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: var(--v-8); align-items: end;
     padding: 6rem 0 clamp(5.5rem, 15vh, 8.5rem); }
@@ -299,7 +319,7 @@
           <img src="assets/hero.webp" srcset="assets/hero-1200.webp 1200w, assets/hero.webp 1920w" sizes="100vw" alt="Архивная комната: стеллажи с одинаковыми серыми архивными коробами" width="1920" height="1080" fetchpriority="high">
         </div>
         <div class="v-scrim hero__scrim" aria-hidden="true"></div>
-        <p class="demo-for" data-demo-for>Демо для IvanKuznecov1981 · по заказу «Дизайн страницы»</p>
+        <p class="demo-for" data-demo-for>Учебный макет, данные вымышленные · Демо для IvanKuznecov1981 · по заказу «Дизайн страницы»</p>
         <div class="v-copy v-copy--lead hero__copy" data-v-cue="0 0.45 0 0.1">
           <p class="hero__label">Архивная обработка · опись · сканирование · электронный архив</p>
           <h1 class="v-display v-display--xl" data-v-kinetic="lines">Архивная обработка для организаций в Москве – по ФЗ-125</h1>
@@ -423,7 +443,7 @@
         <div class="v-copy v-copy--lead kak__step" data-v-cue="0 0.28 0 0.05">
           <span class="kak__n">1 / 4 · Заявка</span>
           <h2 class="v-display v-display--lg">Описываете объём и задачу</h2>
-          <p class="v-lede">Сколько дел или коробов, какие документы, к какому сроку. Отвечаем оценкой и порядком работы.</p>
+          <p class="v-lede">Сколько дел или коробов, какие документы, к какому сроку. Оценку по описи пришлём за 1 рабочий день.</p>
         </div>
         <div class="v-copy v-copy--lead kak__step" data-v-cue="0.28 0.54 0.05 0.05">
           <span class="kak__n">2 / 4 · Договор</span>
@@ -452,15 +472,25 @@
           <p class="v-body">Опишите объём дел и виды документов – получите оценку, а не «зависит от задачи». Буква у каждого вида – это колонка в акте выше.</p>
           <div class="example">
             <p class="example__title">Как считаем</p>
-            <p class="example__text v-nums">Объём дел и этапы – оценка до договора.</p>
-            <p class="example__note">Экспертиза ценности и уничтожение документов – по запросу. Цены по видам дел уточняются у компании.</p>
+            <p class="example__text v-nums">Оценка по описи – за 1 рабочий день.</p>
+            <p class="example__note">Выезд оценщика по Москве бесплатный. Цены ориентировочные, итог – в договоре. Учебный макет: цены вымышлены.</p>
+          </div>
+          <div class="example">
+            <p class="example__title">Дополнительные работы</p>
+            <ul class="extra">
+              <li><span>Сканирование</span><b class="v-nums">от 4 ₽ за лист</b></li>
+              <li><span>Электронный архив: индексация и загрузка</span><b class="v-nums">от 8 ₽ за лист</b></li>
+              <li><span>Экспертиза ценности</span><b class="v-nums">от 15 000 ₽ за проект</b></li>
+              <li><span>Уничтожение документов с актом</span><b class="v-nums">от 15 ₽ за кг</b></li>
+            </ul>
+            <p class="example__note">Сканирование – от 2 000 листов в день. Экспертиза – 5-10 рабочих дней, уничтожение – 3 рабочих дня.</p>
           </div>
           <a class="v-btn v-btn--ghost" href="#raschet">Рассчитать стоимость</a>
         </div>
         <ul class="rows rows--ceny" data-v-in data-v-stagger="70">
-          <li><span class="rows__col">П</span><h3>Дела постоянного хранения</h3><p>Документы, которые хранятся бессрочно. Полный комплект работ: опись, подшивка, нумерация, заверение. Пункты акта с отметкой «П».</p><span class="price v-nums">уточнить</span><span class="min v-nums">по объёму дел</span></li>
-          <li><span class="rows__col">Л</span><h3>Дела по личному составу</h3><p>Кадровые документы с персональными данными: порядок, опись и ограничение доступа. Пункты акта с отметкой «Л».</p><span class="price v-nums">уточнить</span><span class="min v-nums">по объёму дел</span></li>
-          <li><span class="rows__col">В</span><h3>Дела временного хранения</h3><p>Документы с ограниченным сроком: опись, срок и контроль уничтожения по истечении. Отметка «В».</p><span class="price v-nums">уточнить</span><span class="min v-nums">по объёму дел</span></li>
+          <li><span class="rows__col">П</span><h3>Дела постоянного хранения</h3><p>Документы, которые хранятся бессрочно. Полный комплект работ: опись, подшивка, нумерация, заверение. Пункты акта с отметкой «П». Одно дело – до 1 рабочего дня, 100 дел – до 7.</p><span class="price v-nums">от 900 ₽</span><span class="min v-nums">за дело</span></li>
+          <li><span class="rows__col">Л</span><h3>Дела по личному составу</h3><p>Кадровые документы с персональными данными: порядок, опись и ограничение доступа. Пункты акта с отметкой «Л». Сроки те же.</p><span class="price v-nums">от 700 ₽</span><span class="min v-nums">за дело</span></li>
+          <li><span class="rows__col">В</span><h3>Дела временного хранения</h3><p>Документы с ограниченным сроком: опись, срок и контроль уничтожения по истечении. Отметка «В». Сроки те же.</p><span class="price v-nums">от 500 ₽</span><span class="min v-nums">за дело</span></li>
         </ul>
       </div>
     </section>
@@ -476,6 +506,8 @@
           <div class="kto__copy" data-v-in data-v-stagger="60">
             <h2 class="v-display v-display--lg">Как мы работаем</h2>
             <ul class="facts">
+              <li><b>12 лет на рынке</b><span>40 000 обработанных дел для 150 организаций. Цифры вымышлены для учебного макета.</span></li>
+              <li><b>Пишем для «Гаранта»</b><span>Статьи об архивировании документов в организациях публикуются на <a href="https://www.garant.ru/article/1808828/" rel="noopener">garant.ru</a>.</span></li>
               <li><b>По закону об архивном деле</b><span>Основа порядка – Федеральный закон № 125-ФЗ от 2004 года «Об архивном деле в Российской Федерации».</span></li>
               <li><b>Договор и акт</b><span>Состав работ фиксируется в договоре, результат принимается по акту. Пункты – те, что выше.</span></li>
               <li><b>Описи на руках</b><span>Передаём описи, по которым нужное дело находится по номеру, а не по памяти.</span></li>
@@ -483,6 +515,52 @@
               <li><b>Персональные данные</b><span>Кадровые документы содержат личные данные сотрудников: доступ к ним ограничиваем.</span></li>
             </ul>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6а · ДОВЕРИЕ: кто ведёт заказ. Портрет – иллюстрация, представитель вымышленный -->
+    <section class="v-section lico" id="lico" data-v-act="flow" aria-label="Кто ведёт заказ">
+      <div class="v-wrap">
+        <div class="lico__grid">
+          <figure class="lico__fig" data-v-reveal="left" data-v-reveal-at="0.1 0.45">
+            <img src="assets/portrait.webp" alt="Иллюстрация: руководитель проектов с папкой дела в архивной комнате" width="900" height="1200" loading="lazy" decoding="async">
+            <figcaption>Иллюстрация: вымышленный представитель компании</figcaption>
+          </figure>
+          <div class="lico__copy" data-v-in data-v-stagger="60">
+            <h2 class="v-display v-display--lg">Заказ ведёт один человек</h2>
+            <p class="lico__role">Елена Миронова, руководитель проектов</p>
+            <p class="v-body">От оценки до подписания акта вы общаетесь с ней: она принимает опись, согласует сроки и закрывает акт вместе с вами.</p>
+            <ul class="facts">
+              <li><b>Часы работы</b><span>Пн-Пт 9:00-18:00, суббота и воскресенье выходные.</span></li>
+              <li><b>Выезд к клиенту</b><span>По Москве и Московской области, от 50 дел.</span></li>
+              <li><b>Оценка по описи</b><span>За 1 рабочий день. Выезд оценщика по Москве бесплатный.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6б · ДОВЕРИЕ: отзывы. Три штуки, вымышленные, подпись об этом в каждом -->
+    <section class="v-section otz" id="otzyvy" data-v-act="flow" aria-label="Отзывы">
+      <div class="v-wrap">
+        <div class="otz__head" data-v-in data-v-stagger="60">
+          <h2 class="v-display v-display--lg">Что говорят о работе по акту</h2>
+          <p class="v-body">Отзывы написаны для учебного макета и не принадлежат реальным клиентам.</p>
+        </div>
+        <div class="reviews__list" data-v-in data-v-stagger="70">
+          <figure class="reviews__item reviews__item--big">
+            <blockquote class="reviews__text">«Приняли дела по акту, всё описано, нужную папку мы нашли за пять минут».</blockquote>
+            <figcaption class="reviews__meta"><b>Секретарь</b>, ООО «Пример» · вымышленный отзыв</figcaption>
+          </figure>
+          <figure class="reviews__item">
+            <blockquote class="reviews__text">«Перед проверкой привели в порядок договоры, замечаний по хранению не было».</blockquote>
+            <figcaption class="reviews__meta"><b>Юрист</b>, ООО «Образец» · вымышленный отзыв</figcaption>
+          </figure>
+          <figure class="reviews__item">
+            <blockquote class="reviews__text">«Понятный расчёт по описи, без доплат в конце».</blockquote>
+            <figcaption class="reviews__meta"><b>Главный бухгалтер</b>, ООО «Тест» · вымышленный отзыв</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -501,12 +579,13 @@
             <a class="fin__tel" href="tel:+74952261667">+7 495 226 16 67</a>
             <span><a href="mailto:info@archivexpert.ru">info@archivexpert.ru</a></span>
             <span><b>ул. Красноармейская, д. 4</b>, Москва</span>
+            <span>Пн-Пт 9:00-18:00, выезд по Москве и области от 50 дел</span>
             <span class="fin__demo">Демо-страница: кнопки ведут на почту компании</span>
           </div>
         </div>
         <footer class="foot">
           <span>Архивный Эксперт · Москва</span>
-          <span>Концепция страницы для обсуждения, не сайт компании</span>
+          <span>Учебный макет: цены, цифры, отзывы и представитель вымышлены, это не сайт компании</span>
           <span class="foot__more">Опись, сканирование и электронный архив для организаций</span>
         </footer>
       </div>
